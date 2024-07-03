@@ -23,26 +23,33 @@ int chargeRateIsOk(float chargeRate){
     return 0;
   }
   return 1;
- }
+ 
+}
 
 int batteryIsOk(float temperature, float soc, float chargeRate) {
+	int ret = 1;
 	
 	if(!tempIsOk(temperature))
 	{
-		return 0;
+		ret = 0;
 	}
 	else if(!socIsOk(soc))
 	{
-		return 0;
+		ret = 0;
 	}
-	else if(!chargeRateIsOk(chargeRate))
+	if (ret != 0)
 	{
-		return 0;
+		if(!chargeRateIsOk(chargeRate))
+		{
+			ret = 0;
+		}
 	}
-  return 1;
+	return ret;
 }
 
+
+
 int main() {
-  assert(batteryIsOk(25, 70, 0.7));
+  assert(batteryIsOk(50, 90, 0.7));
   assert(!batteryIsOk(50, 85, 0));
 }
