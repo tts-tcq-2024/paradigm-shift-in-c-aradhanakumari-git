@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <stdbool.h>
-
+#include "MonitorBattery.h"
 
 int main() {
   assert(batteryIsOk(25, 70, 0.7));
