@@ -2,6 +2,7 @@
 #include <assert.h>
 #include <stdbool.h>
 
+#include "MonitorBattery.h"
 
 
 bool tempIsOk(float temperature){ 
