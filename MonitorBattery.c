@@ -26,8 +26,7 @@ bool tempIsOk(float temperature){
 	  printf("warning: Temperature lower limit warning!\n");
   } else if (temperature >= TEMP_UPPER_LIMIT - TEMP_WARNING_THRESHOLD) {
 	  printf("warning: Temperature upper limit warning!\n");
-	 
-  }
+	 }
 return true;
 }
 
