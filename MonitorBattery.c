@@ -24,11 +24,4 @@ return (evaluateBatteryParam("temperature",temperature,TEMP_UPPER_LIMIT,TEMP_LOW
 //return (tempIsOk(temperature) && (socIsOk(soc) && (chargeRateIsOk(chargeRate))));
 }
 
-void printMsg(const char* param,const char *message,Language lan_e) {
-   if(lan_e == ENGLISH)
-   {
-    printf("MESSAGE:%s\n", message);
-   }
-   else
-   {}
-}
+
