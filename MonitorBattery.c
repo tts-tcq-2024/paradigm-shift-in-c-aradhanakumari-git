@@ -11,10 +11,6 @@
 #define SOC_LOWER_LIMIT			20
 #define CHARGE_RATE_UPPER_LIMIT         0.8
 
-#define TEMP_WARNING_THRESHOLD          0.05 * TEMP_UPPER_LIMIT
-#define SOC_WARNING_THRESHOLD           0.05 * SOC_UPPER_LIMIT
-#define CHARGE_RATE_WARNING_THRESHOLD   0.05 * CHARGE_RATE_UPPER_LIMIT
-
 int evaluateBatteryParam(const char* param, int value, int upper_limit, int lower_limit)
 {
 	int ret = 1;
@@ -31,7 +27,7 @@ int evaluateBatteryParam(const char* param, int value, int upper_limit, int lowe
 }
 
 bool batteryIsOk(float temperature, float soc, float chargeRate) {
-return (evaluateBatteryParam("temperature",temperature,45,0) && (evaluateBatteryParam("soc",soc,80,20) && (evaluateBatteryParam("chargeRate",chargeRate,0.8,0))));
+return (evaluateBatteryParam("temperature",temperature,TEMP_UPPER_LIMIT,TEMP_LOWER_LIMIT) && (evaluateBatteryParam("soc",soc,SOC_UPPER_LIMIT,SOC_LOWER_LIMIT) && (evaluateBatteryParam("chargeRate",chargeRate,CHARGE_RATE_UPPER_LIMIT,0))));
 //return (tempIsOk(temperature) && (socIsOk(soc) && (chargeRateIsOk(chargeRate))));
 }
 
