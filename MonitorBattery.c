@@ -16,13 +16,11 @@ int evaluateBatteryParam(const char* param, int value, int upper_limit, int lowe
 	int ret = 1;
 	if (value < lower_limit || value > upper_limit) {
 	printMsg("param","Out of range!\n");
-	ret = 0;
-	}
+	ret = 0;}
 	else if (value <= lower_limit + (0.05 * upper_limit)) {
 	printMsg("param","Lower limit warning!\n");}
         else if (value >= upper_limit - (0.05 * upper_limit)) {
 	printMsg("param","Upper limit warning!\n");}
-
 	return ret;
 }
 
