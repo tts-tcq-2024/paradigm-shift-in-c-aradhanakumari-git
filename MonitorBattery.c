@@ -4,6 +4,7 @@
 #include <string.h>
 
 #include "MonitorBattery.h"
+#include "printMessage.h"
 
 
 int evaluateBatteryParam(const char* param, int value, int upper_limit, int lower_limit)
