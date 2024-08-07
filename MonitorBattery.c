@@ -11,16 +11,24 @@
 #define SOC_LOWER_LIMIT			20
 #define CHARGE_RATE_UPPER_LIMIT         0.8
 
+typedef enum 
+{
+ENGLISH,
+HINDI,
+GERMAN
+} Language;
+
+Language language_e;
 int evaluateBatteryParam(const char* param, int value, int upper_limit, int lower_limit)
 {
 	int ret = 1;
 	if (value < lower_limit || value > upper_limit) {
-	printMsg("param","Out of range!\n");
+	printMsg("param","Out of range!\n", ENGLISH);
 	ret = 0;}
 	else if (value <= lower_limit + (0.05 * upper_limit)) {
-	printMsg("param","Lower limit warning!\n");}
+	printMsg("param","Lower limit warning!\n",ENGLISH);}
         else if (value >= upper_limit - (0.05 * upper_limit)) {
-	printMsg("param","Upper limit warning!\n");}
+	printMsg("param","Upper limit warning!\n",ENGLISH);}
 	return ret;
 }
 
@@ -29,6 +37,11 @@ return (evaluateBatteryParam("temperature",temperature,TEMP_UPPER_LIMIT,TEMP_LOW
 //return (tempIsOk(temperature) && (socIsOk(soc) && (chargeRateIsOk(chargeRate))));
 }
 
-void printMsg(const char* param,const char *message) {
+void printMsg(const char* param,const char *message,Language lan_e) {
+   if(lan_e == ENGLISH)
+   {
     printf("MESSAGE:%s\n", message);
+   }
+   else
+   {}
 }
