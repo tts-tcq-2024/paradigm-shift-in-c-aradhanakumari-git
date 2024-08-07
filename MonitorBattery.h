@@ -13,7 +13,7 @@ HINDI,
 GERMAN
 } Language;
 
-Language language_e;
+extern Language language_e;
 
 bool batteryIsOk(float temperature, float soc, float chargeRate);
 
