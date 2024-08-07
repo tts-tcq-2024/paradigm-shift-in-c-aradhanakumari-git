@@ -34,6 +34,11 @@ bool chargeRateIsOk(float chargeRate){
 	  printMsg("Warning : Charge Rate upper limit warning!\n");}
   return true;}
 
+int evaluateBatteryParam(const char* param)
+{
+	
+}
+
 bool batteryIsOk(float temperature, float soc, float chargeRate) {
 return (tempIsOk(temperature) && (socIsOk(soc) && (chargeRateIsOk(chargeRate))));}
 
